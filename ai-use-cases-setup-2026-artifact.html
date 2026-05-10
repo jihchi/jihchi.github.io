@@ -295,7 +295,7 @@
     .quote { font-family: var(--serif); font-size: 22px; line-height: 1.38; color: var(--slate); }
     .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin: 16px 0 0 50px; }
     .step { position: relative; padding: 14px; border-radius: 14px; border: 1.5px solid var(--g300); background: var(--paper); text-align: center; color: var(--g700); font-size: 13px; animation: flow-pop 650ms ease both; }
-    .step:not(:last-child)::after { content: "→"; position: absolute; right: -15px; top: 50%; transform: translateY(-50%); color: var(--clay); font-family: var(--mono); animation: nudge 1.6s ease-in-out infinite; }
+    .step:not(:last-child)::after { content: "→"; position: absolute; left: calc(100% + 10px); top: 50%; transform: translate(-50%, -50%); color: var(--clay); font-family: var(--mono); animation: nudge 1.6s ease-in-out infinite; }
     .step:nth-child(2) { animation-delay: 80ms; }
     .step:nth-child(3) { animation-delay: 160ms; }
     .step:nth-child(4) { animation-delay: 240ms; }
@@ -345,8 +345,12 @@
       to { opacity: 1; transform: scale(1) translateY(0); }
     }
     @keyframes nudge {
-      0%, 100% { transform: translate(-2px, -50%); opacity: .45; }
-      50% { transform: translate(2px, -50%); opacity: 1; }
+      0%, 100% { transform: translate(calc(-50% - 2px), -50%); opacity: .45; }
+      50% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    }
+    @keyframes nudge-down {
+      0%, 100% { transform: translate(-50%, calc(-50% - 2px)); opacity: .45; }
+      50% { transform: translate(-50%, calc(-50% + 2px)); opacity: 1; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -362,7 +366,7 @@
       .section h3, .section > p, .section > ul, .section > .lead, .section > .callout, .section > .quote,
       .grid, .cards3, .pillrow, .flow, pre, .matrix { margin-left: 0; }
       .matrix { width: 100%; display: block; overflow-x: auto; }
-      .step:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -18px; transform: translateX(-50%); }
+      .step:not(:last-child)::after { content: "↓"; left: 50%; top: calc(100% + 10px); animation-name: nudge-down; }
       .model-list { columns: 1; }
     }
     @media print {
