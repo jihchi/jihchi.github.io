@@ -3,300 +3,169 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Use Cases & Setup in 2026 — HTML Artifact</title>
-  <meta name="description" content="A visual HTML artifact for Jihchi's AI use cases and setup in 2026.">
+  <title>My current AI use cases and setup in 2026</title>
+  <meta name="description" content="A visual reading artifact for Jihchi's current AI use cases, tools, subscriptions, self-hosted assistants, and infrastructure setup in 2026.">
   <style>
-    :root {
-      --bg: #0d1117;
-      --panel: rgba(255,255,255,.075);
-      --panel-strong: rgba(255,255,255,.12);
-      --text: #e6edf3;
-      --muted: #9da7b3;
-      --line: rgba(255,255,255,.14);
-      --blue: #72ddf7;
-      --green: #9df5b7;
-      --yellow: #ffd166;
-      --pink: #ff8fab;
-      --purple: #cdb4ff;
-      --orange: #ffb86b;
-      --code: #05070a;
-      --shadow: 0 24px 80px rgba(0,0,0,.35);
-      color-scheme: dark;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 18% 8%, rgba(114,221,247,.20), transparent 34rem),
-        radial-gradient(circle at 92% 12%, rgba(205,180,255,.18), transparent 30rem),
-        radial-gradient(circle at 60% 100%, rgba(157,245,183,.10), transparent 40rem),
-        var(--bg);
-    }
-    a { color: var(--blue); text-decoration-thickness: .08em; text-underline-offset: .18em; }
-    a:hover { color: white; }
-    .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
-    header.hero { padding: 72px 0 34px; }
-    .eyebrow {
-      display: inline-flex; gap: 8px; align-items: center;
-      color: var(--green); border: 1px solid rgba(157,245,183,.35);
-      background: rgba(157,245,183,.08); padding: 6px 10px; border-radius: 999px;
-      font-size: 13px; letter-spacing: .02em;
-    }
-    h1 { font-size: clamp(42px, 7vw, 86px); line-height: .95; letter-spacing: -.06em; margin: 22px 0; max-width: 980px; }
-    .subtitle { font-size: clamp(18px, 2vw, 24px); color: var(--muted); max-width: 780px; margin: 0; }
-    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 22px; align-items: stretch; margin-top: 34px; }
-    .card, .article-wrap, .toc {
-      background: linear-gradient(180deg, var(--panel-strong), var(--panel));
-      border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-    }
-    .card { padding: 22px; }
-    .card h2, .card h3 { margin: 0 0 10px; line-height: 1.1; letter-spacing: -.03em; }
-    .quick-take { display: grid; gap: 14px; }
-    .take-row { display: grid; grid-template-columns: 130px 1fr; gap: 14px; padding: 14px; border-radius: 16px; background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.08); }
-    .take-row strong { color: white; }
-    .take-row span:first-child { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
-    .stack-map { min-height: 100%; }
-    .pill-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-    .pill { padding: 8px 11px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.11); color: #dbe7f3; font-size: 14px; }
-    .pill.blue { border-color: rgba(114,221,247,.35); color: var(--blue); }
-    .pill.green { border-color: rgba(157,245,183,.35); color: var(--green); }
-    .pill.yellow { border-color: rgba(255,209,102,.35); color: var(--yellow); }
-    .pill.purple { border-color: rgba(205,180,255,.35); color: var(--purple); }
-    .section-title { margin: 58px 0 18px; display: flex; align-items: end; justify-content: space-between; gap: 20px; }
-    .section-title h2 { margin: 0; font-size: clamp(28px, 4vw, 48px); letter-spacing: -.05em; line-height: 1; }
-    .section-title p { margin: 0; color: var(--muted); max-width: 520px; }
-    .use-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .use-card { padding: 18px; border-radius: 20px; border: 1px solid var(--line); background: rgba(255,255,255,.06); min-height: 190px; }
-    .icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; margin-bottom: 14px; font-size: 22px; }
-    .use-card:nth-child(1) .icon { background: rgba(114,221,247,.14); }
-    .use-card:nth-child(2) .icon { background: rgba(157,245,183,.14); }
-    .use-card:nth-child(3) .icon { background: rgba(255,209,102,.14); }
-    .use-card:nth-child(4) .icon { background: rgba(255,143,171,.14); }
-    .use-card h3 { margin: 0 0 8px; }
-    .use-card p { margin: 0; color: var(--muted); }
-    .layout { display: grid; grid-template-columns: 270px 1fr; gap: 22px; align-items: start; margin: 22px 0 70px; }
-    .toc { position: sticky; top: 18px; padding: 18px; }
-    .toc h2 { margin: 0 0 12px; font-size: 15px; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
-    .toc a { display: block; color: var(--text); text-decoration: none; padding: 9px 10px; border-radius: 10px; font-size: 14px; }
-    .toc a:hover { background: rgba(255,255,255,.08); color: var(--blue); }
-    .article-wrap { padding: clamp(22px, 4vw, 48px); overflow: hidden; }
-    article { max-width: 820px; margin: 0 auto; }
-    article h1 { font-size: clamp(34px, 4vw, 56px); letter-spacing: -.05em; line-height: 1; margin-top: 0; }
-    article h2 { font-size: 30px; margin-top: 54px; padding-top: 18px; border-top: 1px solid var(--line); letter-spacing: -.035em; }
-    article h3 { font-size: 22px; margin-top: 34px; color: #fff; }
-    article p, article li { color: #d4dbe4; }
-    article table { width: 100%; border-collapse: collapse; margin: 20px 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--line); }
-    article th { background: rgba(114,221,247,.14); color: #fff; text-align: left; }
-    article th, article td { padding: 13px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
-    article tr:last-child td { border-bottom: 0; }
-    article td:first-child { color: var(--yellow); font-weight: 700; width: 34%; }
-    article code { background: rgba(255,255,255,.10); color: var(--green); padding: .15em .35em; border-radius: 6px; }
-    article pre { background: var(--code); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 18px; overflow: auto; }
-    article pre code { background: transparent; padding: 0; color: #e6edf3; }
-    article ul { padding-left: 1.25rem; }
-    .source-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; color: var(--muted); font-size: 14px; }
-    .source-bar span, .source-bar a { padding: 8px 10px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10); }
-    footer { color: var(--muted); padding: 0 0 44px; text-align: center; }
-    @media (max-width: 920px) {
-      .hero-grid, .layout { grid-template-columns: 1fr; }
-      .use-grid { grid-template-columns: repeat(2, 1fr); }
-      .toc { position: static; }
-    }
-    @media (max-width: 580px) {
-      .use-grid { grid-template-columns: 1fr; }
-      .take-row { grid-template-columns: 1fr; }
-      header.hero { padding-top: 42px; }
-    }
+    :root{--bg:#0b1020;--bg2:#111936;--card:rgba(255,255,255,.075);--card2:rgba(255,255,255,.12);--text:#eef3ff;--muted:#aab6d3;--line:rgba(255,255,255,.16);--cyan:#7ddfff;--green:#9bf6c8;--amber:#ffd37a;--pink:#ff9ab5;--violet:#c8b6ff;--code:#050814;--shadow:0 22px 70px rgba(0,0,0,.34);color-scheme:dark}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.68 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 12% 4%,rgba(125,223,255,.22),transparent 30rem),radial-gradient(circle at 92% 12%,rgba(200,182,255,.20),transparent 32rem),radial-gradient(circle at 55% 105%,rgba(155,246,200,.12),transparent 40rem),linear-gradient(180deg,var(--bg),#080b14 64%)}a{color:var(--cyan);text-decoration-thickness:.08em;text-underline-offset:.18em}a:hover{color:white}.wrap{width:min(1160px,calc(100% - 32px));margin:auto}.hero{padding:64px 0 34px}.eyebrow{display:inline-flex;gap:.5rem;align-items:center;color:var(--green);font-weight:750;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.hero h1{margin:.45rem 0 1rem;font-size:clamp(2.4rem,7vw,5.8rem);line-height:.92;letter-spacing:-.07em;max-width:980px}.dek{max-width:790px;color:#dce6fb;font-size:clamp(1.08rem,2vw,1.32rem)}.tip{margin-top:24px;padding:16px 18px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,rgba(125,223,255,.12),rgba(200,182,255,.10));box-shadow:var(--shadow)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:34px 0}.stat{padding:18px;border:1px solid var(--line);border-radius:22px;background:var(--card)}.stat b{display:block;font-size:1.55rem;color:white}.stat span{color:var(--muted);font-size:.92rem}.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:28px;align-items:start}.toc{position:sticky;top:14px;padding:18px;border:1px solid var(--line);border-radius:24px;background:rgba(8,12,24,.72);backdrop-filter:blur(18px)}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;padding:8px 0;color:var(--muted);text-decoration:none;border-top:1px solid rgba(255,255,255,.07)}.toc a:hover{color:white}.section{margin:0 0 22px;padding:28px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.045));box-shadow:var(--shadow)}.section h2{margin:0 0 12px;font-size:clamp(1.7rem,3vw,2.45rem);letter-spacing:-.04em}.section h3{margin:24px 0 10px;color:var(--amber);font-size:1.15rem}.lead{color:#dce6fb;font-size:1.08rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{padding:18px;border:1px solid var(--line);border-radius:22px;background:var(--card)}.card h3,.card h4{margin:0 0 8px}.card p{margin:.45rem 0;color:var(--muted)}.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.pill{display:inline-flex;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:#dce6fb;font-size:.9rem}.matrix{width:100%;border-collapse:collapse;overflow:hidden;border-radius:18px;font-size:.95rem}.matrix th,.matrix td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.09);vertical-align:top}.matrix th{text-align:left;color:white;background:rgba(255,255,255,.09)}.matrix td:first-child{color:var(--green);font-weight:750;white-space:nowrap}.callout{margin:18px 0;padding:18px 20px;border-left:4px solid var(--cyan);border-radius:18px;background:rgba(125,223,255,.10);color:#dfeaff}.quote{font-size:1.22rem;line-height:1.5;color:white}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px 0}.step{position:relative;padding:14px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.07);text-align:center;color:#dfeaff;font-size:.94rem}.step b{display:block;color:var(--green)}pre{overflow:auto;padding:18px;border-radius:18px;border:1px solid rgba(255,255,255,.13);background:var(--code);color:#d8e7ff;line-height:1.5}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.model-list{columns:2;column-gap:28px}.model-list li{break-inside:avoid;margin:0 0 9px}.footer{padding:34px 0 56px;color:var(--muted);text-align:center}.accent-cyan{color:var(--cyan)}.accent-green{color:var(--green)}.accent-pink{color:var(--pink)}.accent-violet{color:var(--violet)}ul{padding-left:1.25rem}li{margin:.35rem 0}@media (max-width:880px){.layout{grid-template-columns:1fr}.toc{position:relative;top:auto}.stats,.grid,.cards3,.flow{grid-template-columns:1fr}.model-list{columns:1}.section{padding:21px}.matrix{display:block;overflow-x:auto}.hero{padding-top:40px}}@media print{body{background:white;color:#111}.toc,.tip{display:none}.section,.card,.stat{box-shadow:none;background:white;color:#111;border-color:#ddd}a{color:#0645ad}}
   </style>
 </head>
 <body>
-  <header class="hero shell">
-    <div class="eyebrow">Fetched artifact · May 2026 · AI workflow notes</div>
-    <h1>My current AI use cases and setup in 2026</h1>
-    <p class="subtitle">A visual companion to Jihchi’s blog post: terminal-native AI coding agents, sandboxing experiments, subscriptions, self-hosted assistants, and everyday language/research workflows.</p>
-    <div class="hero-grid">
-      <section class="card quick-take" aria-labelledby="takeaways">
-        <h2 id="takeaways">Quick takeaways</h2>
-        <div class="take-row"><span>Posture</span><strong>Pragmatic, CLI-first, model-diverse, and explicitly “current state,” not universal advice.</strong></div>
-        <div class="take-row"><span>Coding</span><strong>Claude Code, Codex CLI, Pi, Gemini CLI, and agent skills are used across work, OSS, and side projects.</strong></div>
-        <div class="take-row"><span>Safety</span><strong>Sandboxing is moving toward VM/container-style isolation with ergonomic directory sync.</strong></div>
-        <div class="take-row"><span>Personal AI</span><strong>AI is woven into family assistants, language learning, translation, research, and self-hosted infrastructure.</strong></div>
-      </section>
-      <section class="card stack-map" aria-labelledby="stackmap">
-        <h2 id="stackmap">Tool landscape</h2>
-        <p style="color:var(--muted); margin:0">The setup spans local machines, paid hosted models, open-weight model tracking, private-network infrastructure, and self-hosted agents.</p>
-        <div class="pill-cloud" aria-label="Key tools and models">
-          <span class="pill blue">Claude Code</span><span class="pill blue">Codex CLI</span><span class="pill blue">Pi coding agent</span><span class="pill blue">Gemini CLI</span>
-          <span class="pill green">Opus 4.7</span><span class="pill green">GPT-5.5</span><span class="pill green">GLM 5.1</span><span class="pill green">Gemini 3.1 Pro</span>
-          <span class="pill yellow">Lima</span><span class="pill yellow">Tailscale</span><span class="pill yellow">Docker</span><span class="pill yellow">Ansible</span>
-          <span class="pill purple">Hermes Agent</span><span class="pill purple">Obsidian Vault</span><span class="pill purple">Muxclaw</span>
-        </div>
-      </section>
+  <header class="hero wrap">
+    <div class="eyebrow">2026 snapshot · personal workflow</div>
+    <h1>My current <span class="accent-cyan">AI use cases</span> and setup in 2026</h1>
+    <p class="dek">A fast-moving snapshot of how I currently use AI-powered tools across coding, self-hosted assistants, infrastructure, language learning, and research. It is mainly a note to my future self—not a universal recommendation list.</p>
+    <div class="tip"><strong>Reading artifact.</strong> This page is a visual companion to the blog post, inspired by <a href="https://x.com/trq212">Thariq</a>’s “<a href="https://x.com/trq212/status/2052809885763747935">Using Claude Code: The Unreasonable Effectiveness of HTML</a>.” Thanks <a href="https://www.linkedin.com/in/%F0%9F%8D%BA-chung-yen-l-03166478/">CY</a> for the suggestion.</div>
+    <div class="stats" aria-label="Snapshot stats">
+      <div class="stat"><b>CLI-first</b><span>terminal-native workflow</span></div>
+      <div class="stat"><b>3+</b><span>coding agent/model stacks</span></div>
+      <div class="stat"><b>Family</b><span>WhatsApp assistant with memory</span></div>
+      <div class="stat"><b>Private</b><span>Tailscale-backed infra</span></div>
     </div>
   </header>
 
-  <main class="shell">
-    <section class="section-title" aria-labelledby="use-cases">
-      <h2 id="use-cases">Use-case map</h2>
-      <p>The article naturally groups into four modes: coding, operating infrastructure, personal assistants, and everyday thinking/writing.</p>
-    </section>
-    <div class="use-grid">
-      <div class="use-card"><div class="icon">⌨️</div><h3>CLI coding agents</h3><p>Professional and personal development with multiple agents and models, plus skills and code-review workflows.</p></div>
-      <div class="use-card"><div class="icon">🛡️</div><h3>Sandbox + infra</h3><p>Lima today, more isolation tools under evaluation, and a Tailscale/Docker/Ansible server stack.</p></div>
-      <div class="use-card"><div class="icon">🤖</div><h3>Self-hosted assistants</h3><p>Hermes agents in WhatsApp/Telegram groups, backed by calendars, Obsidian memory, and dedicated servers.</p></div>
-      <div class="use-card"><div class="icon">🌱</div><h3>Learning + language</h3><p>Proofreading, translation, alternative phrasing, company research, interview prep, and general Q&A.</p></div>
-    </div>
+  <div class="layout wrap">
+    <nav class="toc" aria-label="Table of contents">
+      <strong>On this page</strong>
+      <a href="#foundation">System foundation</a>
+      <a href="#coding-agents">CLI coding agents</a>
+      <a href="#sandbox">Sandbox</a>
+      <a href="#skills">Agent skills</a>
+      <a href="#subscriptions">Subscriptions & models</a>
+      <a href="#chat">Chat apps</a>
+      <a href="#assistants">Self-hosted assistants</a>
+      <a href="#infrastructure">Infrastructure</a>
+      <a href="#everyday">Everyday language assistant</a>
+      <a href="#research">Brainstorming & research</a>
+    </nav>
 
-    <section class="section-title" aria-labelledby="full-article">
-      <h2 id="full-article">Annotated article</h2>
-      <p>The original blog content is preserved below, restyled for easier scanning and sharing.</p>
-    </section>
+    <main>
+      <section class="section" id="foundation">
+        <h2>System foundation</h2>
+        <p class="lead">I’ve lived in the terminal for many years, so my AI setup is built around CLI tools and portable dotfiles.</p>
+        <table class="matrix">
+          <thead><tr><th>Category</th><th>Tools</th></tr></thead>
+          <tbody>
+            <tr><td>Operating system</td><td>macOS on laptop and Linux on PC, using <a href="https://omarchy.org/">Omarchy</a> based on <a href="https://archlinux.org/">Arch</a>.</td></tr>
+            <tr><td>Shell</td><td><a href="https://fishshell.com/">Fish shell</a>.</td></tr>
+            <tr><td>Editor</td><td><a href="https://helix-editor.com/">Helix editor</a> for coding and editing. I used to use <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</td></tr>
+            <tr><td>Dotfiles</td><td><a href="https://yadm.io/">yadm</a>; <a href="https://yadm.io/docs/alternates">Alternative Files</a> are great for OS-specific dotfiles.</td></tr>
+            <tr><td>Tooling</td><td><a href="https://mise.jdx.dev/">mise</a> for CLI tools, environment variables, and runtime/tool management.</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <div class="layout">
-      <nav class="toc" aria-label="Table of contents">
-        <h2>Navigate</h2>
-        <a href="#content-my-current-ai-use-cases-and-setup-in-2026">Overview</a>
-        <a href="#content-cli-coding-agents">CLI coding agents</a>
-        <a href="#content-sandbox">Sandbox</a>
-        <a href="#content-agent-skills">Agent skills</a>
-        <a href="#content-subscriptions">Subscriptions</a>
-        <a href="#content-chat-apps">Chat apps</a>
-        <a href="#content-self-hosted-assistants">Self-hosted assistants</a>
-        <a href="#content-infrastructure">Infrastructure</a>
-        <a href="#content-everyday-natural-language-assistant">Language assistant</a>
-        <a href="#content-brainstorming-qa-and-research">Research</a>
-      </nav>
-      <div class="article-wrap">
-        <article>
-	<h1 id="content-my-current-ai-use-cases-and-setup-in-2026">My current AI use cases and setup in 2026</h1>
-<p>As <a href="https://en.wikipedia.org/wiki/Large_language_model">LLMs</a> evolve quickly, I'd like to record how I currently use AI-powered tools. This is mainly for my future self, not a universal recommendation list, and it will likely be out of date soon.</p>
-<p>I've been living in the terminal for many years, so I'm comfortable with CLI tools. Here are some system-level tools I use:</p>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Tools</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Operating system</td>
-<td>macOS (laptop) and Linux (PC, <a href="https://omarchy.org/">Omarchy</a> based on <a href="https://archlinux.org/">Arch</a>)</td>
-</tr>
-<tr>
-<td>Command line shell</td>
-<td><a href="https://fishshell.com/">Fish shell</a></td>
-</tr>
-<tr>
-<td>Editor</td>
-<td><a href="https://helix-editor.com/">Helix editor</a> for coding and editing. I used to use <a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
-</tr>
-<tr>
-<td>Dotfiles manager</td>
-<td><a href="https://yadm.io/">yadm</a>. <a href="https://yadm.io/docs/alternates">Alternative Files</a> is great for managing OS-specific dotfiles</td>
-</tr>
-<tr>
-<td>CLI tools, environment vars, tooling</td>
-<td><a href="https://mise.jdx.dev/">mise</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="content-cli-coding-agents">CLI coding agents</h2>
-<p>AI coding agents are now part of both my professional and personal development workflows.</p>
-<p>At work, I use <a href="https://code.claude.com/docs/en/cli-reference">Claude Code</a> with the <a href="https://www.anthropic.com/news/claude-opus-4-7">Opus 4.7</a> model as my main driver, and I use <a href="https://developers.openai.com/codex/cli">Codex CLI</a> with <a href="https://openai.com/index/introducing-gpt-5-5/">GPT-5.5</a> interchangeably depending on the task. For example, I might use Opus 4.7 to develop a new feature and then use GPT-5.5 to review the code changes, or vice versa. Because the company does not set a hard limit on tokens and we are encouraged to explore AI tools, I generally set the thinking level higher and don't worry about reducing token consumption in order to maximize the ROI.</p>
-<p>For personal side projects and <a href="https://github.com/jihchi">OSS</a> work, I use the <a href="https://pi.dev/">Pi coding agent</a> with the GPT-5.5 and <a href="https://docs.z.ai/guides/llm/glm-5.1">GLM 5.1</a> models, but I switch to the <a href="https://geminicli.com/">Gemini CLI</a> for accessing <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/">Gemini 3.1 Pro</a> model.</p>
-<h3 id="content-sandbox">Sandbox</h3>
-<p>I'm experimenting with <a href="https://lima-vm.io/">Lima</a> to run the Pi coding agent in an isolated instance. Lima supports <a href="https://lima-vm.io/docs/examples/ai/">syncing with the working directory</a>, which is a nice ergonomic feature. Here is how I configure it:</p>
-<pre><code class="language-sh hljs bash" data-lang="sh">limactl create --mount-none --name=default template:debian
-<span class="hljs-comment"># lima is an alias for "limactl shell default".</span>
+      <section class="section" id="coding-agents">
+        <h2>CLI coding agents</h2>
+        <p class="lead">AI coding agents are now part of both my professional and personal development workflows.</p>
+        <div class="grid">
+          <article class="card"><h3>At work</h3><p>I use <a href="https://code.claude.com/docs/en/cli-reference">Claude Code</a> with <a href="https://www.anthropic.com/news/claude-opus-4-7">Opus 4.7</a> as my main driver, and <a href="https://developers.openai.com/codex/cli">Codex CLI</a> with <a href="https://openai.com/index/introducing-gpt-5-5/">GPT-5.5</a> interchangeably depending on the task.</p><p>One pattern: use Opus to develop a feature, then GPT-5.5 to review changes—or vice versa. Because my company does not set a hard token limit and encourages AI exploration, I generally raise thinking levels instead of optimizing for token savings.</p></article>
+          <article class="card"><h3>Personal & OSS</h3><p>For side projects and <a href="https://github.com/jihchi">OSS</a>, I use the <a href="https://pi.dev/">Pi coding agent</a> with GPT-5.5 and <a href="https://docs.z.ai/guides/llm/glm-5.1">GLM 5.1</a>.</p><p>I switch to <a href="https://geminicli.com/">Gemini CLI</a> when I want access to <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/">Gemini 3.1 Pro</a>.</p></article>
+        </div>
+        <div class="callout quote">The practical setup is not “one perfect model.” It is a small rotation of agents and models, each useful for different development moments.</div>
+      </section>
+
+      <section class="section" id="sandbox">
+        <h2>Sandbox experiments</h2>
+        <p class="lead">I’m experimenting with <a href="https://lima-vm.io/">Lima</a> to run Pi in an isolated instance. Lima supports <a href="https://lima-vm.io/docs/examples/ai/">syncing with the working directory</a>, which keeps the workflow ergonomic.</p>
+        <pre><code>limactl create --mount-none --name=default template:debian
+# lima is an alias for "limactl shell default".
 lima curl https://mise.run/bash | sh
 lima mise u -g node@lts
 lima mise u -g ripgrep fd npm:@earendil-works/pi-coding-agent
-<span class="hljs-built_in">cd</span> ~/my-project
-lima --sync . pi
-</code></pre>
-<p>After exiting pi, you’ll see an interactive prompt:</p>
-<pre><code class="language-yaml hljs yaml" data-lang="yaml"><span class="hljs-string">⚠️</span> <span class="hljs-string">Accept</span> <span class="hljs-string">the</span> <span class="hljs-string">changes?</span>  
-<span class="hljs-string">→</span> <span class="hljs-literal">Yes</span>  
-  <span class="hljs-literal">No</span>  
-  <span class="hljs-string">View</span> <span class="hljs-string">the</span> <span class="hljs-string">changed</span> <span class="hljs-string">contents</span>
-</code></pre>
-<p>Besides Lima, I plan to experiment with the following:</p>
-<ul>
-<li><a href="https://github.com/superradcompany/microsandbox">superradcompany/microsandbox</a>: based on <a href="https://github.com/containers/libkrun">libkrun</a></li>
-<li><a href="https://github.com/smol-machines/smolvm">smol-machines/smolvm</a>: based on <a href="https://github.com/containers/libkrun">libkrun</a></li>
-<li><a href="https://github.com/afshinm/zerobox">afshinm/zerobox</a>: powered by OpenAI Codex's sandbox runtime</li>
-<li><a href="https://github.com/lukehinds/nono">lukehinds/nono</a>: OS security primitives. <a href="https://landlock.io/">Landlock</a> on Linux, <a href="https://theapplewiki.com/wiki/Dev:Seatbelt">Seatbelt</a> on macOS</li>
-<li><a href="https://github.com/stanford-scs/jai">stanford-scs/jai</a>: an ultra-lightweight jail for AI CLIs on modern Linux</li>
-</ul>
-<p>From a usability standpoint, virtual machine- and containerization-based solutions are similar: you mount only the necessary folders or files, install the coding agent, and run it there.</p>
-<h3 id="content-agent-skills">Agent skills</h3>
-<p>Here is a list of common skills I use:</p>
-<ul>
-<li><a href="https://github.com/obra/superpowers/blob/f2cbfbefebbfef77321e4c9abc9e949826bea9d7/skills/brainstorming/SKILL.md">brainstorming</a>, <a href="https://github.com/obra/superpowers/blob/f2cbfbefebbfef77321e4c9abc9e949826bea9d7/skills/requesting-code-review/SKILL.md">requesting-code-review</a> and others from Jesse's <a href="https://github.com/obra/superpowers">superpowers</a></li>
-<li><a href="https://skills.sh/mattpocock/skills/grill-me">grill-me</a> and <a href="https://github.com/mattpocock/skills/blob/733d312884b3878a9a9cff693c5886943753a741/skills/in-progress/handoff/SKILL.md">handoff</a> from <a href="https://github.com/mattpocock/skills">Matt Pocock</a></li>
-<li>Browser Automation
-<ul>
-<li><a href="https://github.com/microsoft/playwright-cli/blob/main/skills/playwright-cli/SKILL.md">playwright-cli</a></li>
-<li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/skills/chrome-devtools-cli/SKILL.md">chrome-devtools-cli</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="content-subscriptions">Subscriptions</h3>
-<p>I don't plan to keep paying for all of them forever, and I generally subscribe to them on a monthly basis. Ideally, I could have only a single subscription for all personal use cases.</p>
-<ul>
-<li><a href="https://gemini.google/us/subscriptions">Google AI Pro (5TB)</a> (Gemini 3.1 Pro or Flash)</li>
-<li><a href="https://chatgpt.com/plans/plus/">ChatGPT Plus</a> (GPT-5.5)</li>
-<li><a href="https://z.ai/subscribe">z.ai GLM Coding Plan</a> (GLM 5.1)</li>
-<li><del><a href="https://docs.fireworks.ai/firepass">Fireworks Fire Pass</a></del> (Kimi K2.6 Turbo. Unsubscribed in May 2026)</li>
-</ul>
-<p>I've been following the progress of open-weight models as they become more powerful. I envision a world where people can buy devices with preinstalled models and local inference capabilities. Here are some models I'm watching:</p>
-<ul>
-<li>Google Gemma: I tested <a href="https://lmstudio.ai/models/google/gemma-4-26b-a4b">Gemma 4 26B A4B (Q4)</a> and it performed OK on my PC without a GPU (32GB RAM, ~14 tokens/second)</li>
-<li>Mistral <a href="https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5">Medium 3.5</a></li>
-<li>DeepSeek (<a href="https://x.com/deepseek_ai/status/2047516922263285776">v4</a>)</li>
-<li>GLM (<a href="https://docs.z.ai/guides/llm/glm-5.1">5.1</a>) from z.ai (Zhipu AI)</li>
-<li>Kimi K2 (<a href="https://www.kimi.com/blog/kimi-k2-6">K2.6</a>) from Moonshot AI</li>
-<li>Qwen3 (<a href="https://qwen.ai/blog?id=qwen3.6-27b">3.6-27B</a>) from Alibaba</li>
-<li>MiniMax M2 (<a href="https://www.minimax.io/models/text/m27">M2.7</a>) from MiniMax</li>
-</ul>
-<h3 id="content-chat-apps">Chat apps</h3>
-<p>I use the desktop app on macOS, the web app on Linux, and the mobile app on my phone.</p>
-<ul>
-<li><a href="https://gemini.google.com/app">Google Gemini</a></li>
-<li><a href="https://chatgpt.com/">ChatGPT</a></li>
-</ul>
-<h3 id="content-self-hosted-assistants">Self-hosted assistants</h3>
-<p>I have a <a href="http://hermes-agent.nousresearch.com/">Hermes Agent</a> for family matters, connected to a WhatsApp group via a WhatsApp Business account. The agent uses the <code>GPT-5.5</code> model and runs in a container on my dedicated server. Family members interact with it in the WhatsApp group. I've granted the agent access to a Google Calendar and shared that calendar with family members. Everything else is stored in an <a href="https://obsidian.md/">Obsidian</a> Vault (markdown files collection) as long-term memory.</p>
-<p>Besides stable family usage, I also keep a personal playground for agent experiments. I have a Hermes Agent for personal <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM Wiki</a> practice and assistance. This agent uses the <code>GLM 5.1</code> model. I also run my experimental assistant project, <a href="https://muxclaw.com/">Muxclaw</a>, using the same model. It's connected to a Telegram group via a Telegram bot.</p>
-<h2 id="content-infrastructure">Infrastructure</h2>
-<p>I rent VPSes and dedicated servers, and I use <a href="https://tailscale.com/">Tailscale</a> to build a secure private network with public access blocked by default. Self-hosted services are connected through this private network. Containerization with Docker is essentially the default option for running services on these VPSes and dedicated servers. I don't use <a href="https://kubernetes.io/">Kubernetes</a> in this setup; instead, I use <a href="https://github.com/ansible/ansible">Ansible</a> to manage the servers.</p>
-<h3 id="content-self-hosted-services">Self-hosted services</h3>
-<p>I've been self-hosting the following services:</p>
-<ul>
-<li><a href="https://immich.app/">Immich</a>: Self-hosted photo and video management solution</li>
-<li><a href="https://karakeep.app/">Karakeep</a>: Quickly save links, notes, and images</li>
-<li><a href="https://changedetection.io/">Changedetection</a>: Monitor websites for changes and receive alerts.</li>
-<li><a href="https://databasus.com/">Databasus</a>: PostgreSQL backup tool</li>
-</ul>
-<h2 id="content-everyday-natural-language-assistant">Everyday natural language assistant</h2>
-<p>AI is my language-learning partner and a powerful translation tool. I use it to proofread my English responses and writing. It helps with grammar, tone, natural phrasing, alternative expressions, and more. I often use it to find alternative ways to express the same thoughts and verify the meaning by reviewing those options.</p>
-<h2 id="content-brainstorming-qa-and-research">Brainstorming, Q&amp;A and research</h2>
-<p>I find it useful to use AI as a learning tool. I use it to brainstorm ideas and explore current or unfamiliar topics.</p>
-<p>For example, while hunting for a job, I use web search and &quot;deep research&quot; to learn about a company, understand its products, prepare questions for interviews, or summarize relevant background.</p>
-</article>
-        <div class="source-bar">
-          <span>Published: May 9, 2026 6:20 PM</span>
-          <a href="https://blog.987.tw/2026/05/my-current-ai-use-cases-and-setup-in-2026">Original source</a>
-          <a href="https://blog.987.tw/">Jihchi's Weblog</a>
+cd ~/my-project
+lima --sync . pi</code></pre>
+        <p>After exiting Pi, Lima shows an interactive prompt:</p>
+        <pre><code>⚠️ Accept the changes?  
+→ Yes  
+  No  
+  View the changed contents</code></pre>
+        <h3>What I want from a sandbox</h3>
+        <div class="flow"><div class="step"><b>1</b>Mount only needed files</div><div class="step"><b>2</b>Install coding agent</div><div class="step"><b>3</b>Run in isolation</div><div class="step"><b>4</b>Review changes</div><div class="step"><b>5</b>Accept or discard</div></div>
+        <h3>Next tools to try</h3>
+        <div class="cards3">
+          <div class="card"><h4><a href="https://github.com/superradcompany/microsandbox">microsandbox</a></h4><p>Based on <a href="https://github.com/containers/libkrun">libkrun</a>.</p></div>
+          <div class="card"><h4><a href="https://github.com/smol-machines/smolvm">smolvm</a></h4><p>Also based on <a href="https://github.com/containers/libkrun">libkrun</a>.</p></div>
+          <div class="card"><h4><a href="https://github.com/afshinm/zerobox">zerobox</a></h4><p>Powered by OpenAI Codex’s sandbox runtime.</p></div>
+          <div class="card"><h4><a href="https://github.com/lukehinds/nono">nono</a></h4><p>OS primitives: <a href="https://landlock.io/">Landlock</a> on Linux and <a href="https://theapplewiki.com/wiki/Dev:Seatbelt">Seatbelt</a> on macOS.</p></div>
+          <div class="card"><h4><a href="https://github.com/stanford-scs/jai">jai</a></h4><p>An ultra-lightweight jail for AI CLIs on modern Linux.</p></div>
         </div>
-      </div>
-    </div>
-  </main>
-  <footer class="shell">HTML artifact generated from the public blog post for local reading and sharing.</footer>
+      </section>
+
+      <section class="section" id="skills">
+        <h2>Agent skills</h2>
+        <p class="lead">Skills turn recurring agent behaviors into reusable process. These are the common ones I use:</p>
+        <div class="grid">
+          <div class="card"><h3>Superpowers</h3><p><a href="https://github.com/obra/superpowers/blob/f2cbfbefebbfef77321e4c9abc9e949826bea9d7/skills/brainstorming/SKILL.md">brainstorming</a>, <a href="https://github.com/obra/superpowers/blob/f2cbfbefebbfef77321e4c9abc9e949826bea9d7/skills/requesting-code-review/SKILL.md">requesting-code-review</a>, and others from Jesse’s <a href="https://github.com/obra/superpowers">superpowers</a>.</p></div>
+          <div class="card"><h3>Matt Pocock</h3><p><a href="https://skills.sh/mattpocock/skills/grill-me">grill-me</a> and <a href="https://github.com/mattpocock/skills/blob/733d312884b3878a9a9cff693c5886943753a741/skills/in-progress/handoff/SKILL.md">handoff</a> from <a href="https://github.com/mattpocock/skills">Matt Pocock</a>.</p></div>
+          <div class="card"><h3>Browser automation</h3><p><a href="https://github.com/microsoft/playwright-cli/blob/main/skills/playwright-cli/SKILL.md">playwright-cli</a> and <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/skills/chrome-devtools-cli/SKILL.md">chrome-devtools-cli</a>.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="subscriptions">
+        <h2>Subscriptions and open-weight models</h2>
+        <p class="lead">I don’t plan to keep paying for all subscriptions forever. I generally subscribe month to month, and ideally I’d have a single subscription covering all personal use cases.</p>
+        <div class="pillrow"><span class="pill">Google AI Pro 5TB</span><span class="pill">ChatGPT Plus</span><span class="pill">z.ai GLM Coding Plan</span><span class="pill">Fireworks unsubscribed</span></div>
+        <ul>
+          <li><a href="https://gemini.google/us/subscriptions">Google AI Pro (5TB)</a> for Gemini 3.1 Pro or Flash.</li>
+          <li><a href="https://chatgpt.com/plans/plus/">ChatGPT Plus</a> for GPT-5.5.</li>
+          <li><a href="https://z.ai/subscribe">z.ai GLM Coding Plan</a> for GLM 5.1.</li>
+          <li><s><a href="https://docs.fireworks.ai/firepass">Fireworks Fire Pass</a></s> for Kimi K2.6 Turbo. Unsubscribed in May 2026.</li>
+        </ul>
+        <h3>Open-weight models I’m watching</h3>
+        <p>I’m following open-weight progress closely. I envision a world where people can buy devices with preinstalled models and local inference capabilities.</p>
+        <ul class="model-list">
+          <li>Google Gemma: I tested <a href="https://lmstudio.ai/models/google/gemma-4-26b-a4b">Gemma 4 26B A4B (Q4)</a>; it performed OK on my PC without a GPU: 32GB RAM, about 14 tokens/second.</li>
+          <li>Mistral <a href="https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5">Medium 3.5</a>.</li>
+          <li>DeepSeek <a href="https://x.com/deepseek_ai/status/2047516922263285776">v4</a>.</li>
+          <li>GLM <a href="https://docs.z.ai/guides/llm/glm-5.1">5.1</a> from z.ai / Zhipu AI.</li>
+          <li>Kimi K2 <a href="https://www.kimi.com/blog/kimi-k2-6">K2.6</a> from Moonshot AI.</li>
+          <li>Qwen3 <a href="https://qwen.ai/blog?id=qwen3.6-27b">3.6-27B</a> from Alibaba.</li>
+          <li>MiniMax M2 <a href="https://www.minimax.io/models/text/m27">M2.7</a> from MiniMax.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="chat">
+        <h2>Chat apps</h2>
+        <p>I use the desktop app on macOS, the web app on Linux, and the mobile app on my phone.</p>
+        <div class="grid"><div class="card"><h3><a href="https://gemini.google.com/app">Google Gemini</a></h3><p>General chat and model access across devices.</p></div><div class="card"><h3><a href="https://chatgpt.com/">ChatGPT</a></h3><p>General chat, writing, and mobile usage.</p></div></div>
+      </section>
+
+      <section class="section" id="assistants">
+        <h2>Self-hosted assistants</h2>
+        <div class="grid">
+          <article class="card"><h3>Family Hermes Agent</h3><p>I have a <a href="http://hermes-agent.nousresearch.com/">Hermes Agent</a> for family matters, connected to a WhatsApp group via a WhatsApp Business account. It uses <code>GPT-5.5</code> and runs in a container on my dedicated server.</p><p>Family members interact with it in WhatsApp. I granted the agent access to a Google Calendar and shared that calendar with family members. Everything else lives in an <a href="https://obsidian.md/">Obsidian</a> Vault as long-term memory.</p></article>
+          <article class="card"><h3>Personal playground</h3><p>I also keep a personal playground for agent experiments: a Hermes Agent for personal <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM Wiki</a> practice and assistance using <code>GLM 5.1</code>.</p><p>I run my experimental assistant project, <a href="https://muxclaw.com/">Muxclaw</a>, using the same model. It is connected to a Telegram group via a Telegram bot.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="infrastructure">
+        <h2>Infrastructure and self-hosted services</h2>
+        <p class="lead">I rent VPSes and dedicated servers, and use <a href="https://tailscale.com/">Tailscale</a> to build a secure private network with public access blocked by default.</p>
+        <p>Self-hosted services are connected through this private network. Docker is the default option for services on VPSes and dedicated servers. I don’t use <a href="https://kubernetes.io/">Kubernetes</a> here; instead, I use <a href="https://github.com/ansible/ansible">Ansible</a> to manage servers.</p>
+        <h3>Services I self-host</h3>
+        <div class="cards3">
+          <div class="card"><h4><a href="https://immich.app/">Immich</a></h4><p>Photo and video management.</p></div>
+          <div class="card"><h4><a href="https://karakeep.app/">Karakeep</a></h4><p>Quickly save links, notes, and images.</p></div>
+          <div class="card"><h4><a href="https://changedetection.io/">Changedetection</a></h4><p>Monitor websites for changes and receive alerts.</p></div>
+          <div class="card"><h4><a href="https://databasus.com/">Databasus</a></h4><p>PostgreSQL backup tool.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="everyday">
+        <h2>Everyday natural language assistant</h2>
+        <p class="quote">AI is my language-learning partner and a powerful translation tool.</p>
+        <p>I use it to proofread English responses and writing. It helps with grammar, tone, natural phrasing, alternative expressions, and more. I often ask for alternative ways to express the same thoughts and verify the meaning by reviewing the options.</p>
+      </section>
+
+      <section class="section" id="research">
+        <h2>Brainstorming, Q&amp;A, and research</h2>
+        <p>I find AI useful as a learning tool. I use it to brainstorm ideas and explore current or unfamiliar topics.</p>
+        <p>For example, while hunting for a job, I use web search and deep research to learn about a company, understand its products, prepare questions for interviews, or summarize relevant background.</p>
+        <div class="callout"><strong>Future-self note:</strong> this setup will probably change quickly. The durable pattern is not the exact model list—it is the habit of matching the tool, context, and risk level to the task.</div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer wrap">Built as a single-file HTML reading artifact for <strong>My current AI use cases and setup in 2026</strong>.</footer>
 </body>
 </html>
