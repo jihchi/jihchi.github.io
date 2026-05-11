@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My current AI use cases and setup in 2026</title>
-  <meta name="description" content="A visual reading artifact for Jihchi's current AI use cases, tools, subscriptions, self-hosted assistants, and infrastructure setup in 2026.">
+  <meta name="description" content="A visual, plain-language companion for Jihchi's current AI use cases, tools, subscriptions, self-hosted assistants, and infrastructure setup in 2026.">
   <style>
     :root {
       --ivory:  #FAF9F5;
@@ -383,7 +383,7 @@
       <div>
         <div class="eyebrow">2026 snapshot · personal workflow</div>
         <h1>My current <span class="accent-cyan">AI use cases</span> and setup in 2026</h1>
-        <p class="dek">A fast-moving snapshot of how I currently use AI-powered tools for productivity and exploration from an end-user perspective. It is mainly a note to my future self—not a universal recommendation list.</p>
+        <p class="dek">A snapshot of how I currently use AI tools in my work, personal projects, family life, writing, and research. This is mainly a note to my future self—not a universal recommendation list.</p>
       </div>
       <div class="system-map" aria-label="Infographic map of the AI setup">
         <div class="map-core">AI setup<span>2026</span></div>
@@ -393,7 +393,7 @@
         <div class="map-node private"><b>Private</b>Tailscale infra</div>
       </div>
     </div>
-    <div class="tip"><strong>Scope.</strong> This does not cover agentic harness engineering, LLM-driven application development, RAG pipelines, fine-tuning, evaluation, or the complexities of integrating autonomous agents into enterprise platforms.</div>
+    <div class="tip"><strong>Scope.</strong> This is about how I personally use AI tools. It does not go deep into advanced AI engineering topics such as building agent platforms, retrieval systems (<a href="https://cloud.google.com/use-cases/retrieval-augmented-generation?hl=en">RAG</a>), fine-tuning models, or enterprise automation.</div>
     <div class="tip"><strong>Reading artifact.</strong> This page is a visual companion to the <a href="https://blog.987.tw/2026/05/my-current-ai-use-cases-and-setup-in-2026">blog post</a>, inspired by <a href="https://x.com/trq212">Thariq</a>’s “<a href="https://x.com/trq212/status/2052809885763747935">Using Claude Code: The Unreasonable Effectiveness of HTML</a>.” Thanks <a href="https://www.linkedin.com/in/%F0%9F%8D%BA-chung-yen-l-03166478/">CY</a> for the suggestion.</div>
     <div class="stats" aria-label="Snapshot stats">
       <div class="stat"><b>CLI-first</b><span>terminal-native workflow</span></div>
@@ -421,14 +421,14 @@
     <main>
       <section class="section" id="foundation">
         <h2>System foundation</h2>
-        <p class="lead">That said, I’ve lived in the terminal for many years, so my AI setup is built around CLI tools and portable dotfiles.</p>
+        <p class="lead">This section describes the basic computer environment I use to run my AI tools. I’ve lived in the terminal for many years, so my setup is built around command-line tools and portable configuration files.</p>
         <table class="matrix">
           <thead><tr><th>Category</th><th>Tools</th></tr></thead>
           <tbody>
             <tr><td>Operating system</td><td>macOS on laptop and Linux on PC, using <a href="https://omarchy.org/">Omarchy</a> based on <a href="https://archlinux.org/">Arch</a>.</td></tr>
             <tr><td>Shell</td><td><a href="https://fishshell.com/">Fish shell</a>.</td></tr>
             <tr><td>Editor</td><td><a href="https://helix-editor.com/">Helix editor</a> for coding and editing. I used to use <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</td></tr>
-            <tr><td>Dotfiles</td><td><a href="https://yadm.io/">yadm</a>; <a href="https://yadm.io/docs/alternates">Alternative Files</a> are great for OS-specific dotfiles.</td></tr>
+            <tr><td>Configuration files</td><td><a href="https://yadm.io/">yadm</a>; <a href="https://yadm.io/docs/alternates">Alternative Files</a> are useful when different operating systems need slightly different settings.</td></tr>
             <tr><td>Tooling</td><td><a href="https://mise.jdx.dev/">mise</a> for CLI tools, environment variables, and runtime/tool management.</td></tr>
           </tbody>
         </table>
@@ -436,9 +436,9 @@
 
       <section class="section" id="coding-agents">
         <h2>CLI coding agents</h2>
-        <p class="lead">AI coding agents are now part of both my professional and personal development workflows.</p>
+        <p class="lead">AI coding agents are tools that help me write, change, and review code. Many of mine run from the terminal, which is why I describe this as a CLI-first workflow.</p>
         <div class="grid">
-          <article class="card"><h3>At work</h3><p>I use <a href="https://code.claude.com/docs/en/cli-reference">Claude Code</a> with <a href="https://www.anthropic.com/news/claude-opus-4-7">Opus 4.7</a> as my main driver, and <a href="https://developers.openai.com/codex/cli">Codex CLI</a> with <a href="https://openai.com/index/introducing-gpt-5-5/">GPT-5.5</a> interchangeably depending on the task.</p><p>One pattern: use Opus to develop a feature, then GPT-5.5 to review changes—or vice versa. Because my company does not set a hard token limit and encourages AI exploration, I generally raise thinking levels instead of optimizing for token savings.</p></article>
+          <article class="card"><h3>At work</h3><p>I use <a href="https://code.claude.com/docs/en/cli-reference">Claude Code</a> with <a href="https://www.anthropic.com/news/claude-opus-4-7">Opus 4.7</a> as my main driver, and <a href="https://developers.openai.com/codex/cli">Codex CLI</a> with <a href="https://openai.com/index/introducing-gpt-5-5/">GPT-5.5</a> interchangeably depending on the task.</p><p>One pattern: use Opus to develop a feature, then GPT-5.5 to review changes—or vice versa. Because my company encourages AI exploration, I usually ask the model to reason more carefully instead of focusing only on cost or usage limits.</p></article>
           <article class="card"><h3>Personal & OSS</h3><p>For side projects and <a href="https://github.com/jihchi">OSS</a>, I use the <a href="https://pi.dev/">Pi coding agent</a> with GPT-5.5 and <a href="https://docs.z.ai/guides/llm/glm-5.1">GLM 5.1</a>.</p><p>I switch to <a href="https://geminicli.com/">Gemini CLI</a> when I want access to <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/">Gemini 3.1 Pro</a>.</p></article>
         </div>
         <div class="callout quote">The practical setup is not “one perfect model.” It is a small rotation of agents and models, each useful for different development moments.</div>
@@ -446,7 +446,7 @@
 
       <section class="section" id="sandbox">
         <h2>Sandbox experiments</h2>
-        <p class="lead">I’m experimenting with <a href="https://lima-vm.io/">Lima</a> to run Pi in an isolated instance. Lima supports <a href="https://lima-vm.io/docs/examples/ai/">syncing with the working directory</a>, which keeps the workflow ergonomic.</p>
+        <p class="lead">A sandbox is a safe, isolated environment where I can let an AI coding tool make changes without giving it full access to my computer. I’m experimenting with <a href="https://lima-vm.io/">Lima</a> to run Pi this way. Lima supports <a href="https://lima-vm.io/docs/examples/ai/">syncing with the working directory</a>, which keeps the workflow practical.</p>
         <pre><code>limactl create --mount-none --name=default template:debian
 # lima is an alias for "limactl shell default".
 lima curl https://mise.run/bash | sh
@@ -473,7 +473,7 @@ lima --sync . pi</code></pre>
 
       <section class="section" id="skills">
         <h2>Agent skills</h2>
-        <p class="lead">Skills turn recurring agent behaviors into reusable process. These are the common ones I use:</p>
+        <p class="lead">Skills are reusable instructions for AI agents. Instead of explaining the same working process every time, I can ask the agent to follow a known skill. These are the common ones I use:</p>
         <div class="grid">
           <div class="card"><h3>Superpowers</h3><p><a href="https://github.com/obra/superpowers/blob/f2cbfbefebbfef77321e4c9abc9e949826bea9d7/skills/brainstorming/SKILL.md">brainstorming</a>, <a href="https://github.com/obra/superpowers/blob/f2cbfbefebbfef77321e4c9abc9e949826bea9d7/skills/requesting-code-review/SKILL.md">requesting-code-review</a>, and others from Jesse’s <a href="https://github.com/obra/superpowers">superpowers</a>.</p></div>
           <div class="card"><h3>Matt Pocock</h3><p><a href="https://skills.sh/mattpocock/skills/grill-me">grill-me</a> and <a href="https://github.com/mattpocock/skills/blob/733d312884b3878a9a9cff693c5886943753a741/skills/in-progress/handoff/SKILL.md">handoff</a> from <a href="https://github.com/mattpocock/skills">Matt Pocock</a>.</p></div>
@@ -492,7 +492,7 @@ lima --sync . pi</code></pre>
           <li><s><a href="https://docs.fireworks.ai/firepass">Fireworks Fire Pass</a></s> for Kimi K2.6 Turbo. Unsubscribed in May 2026.</li>
         </ul>
         <h3>Open-weight models I’m watching</h3>
-        <p>I’m following open-weight progress closely. I envision a world where people can buy devices with preinstalled models and local inference capabilities.</p>
+        <p>I’m following open-weight progress closely. Open-weight models are AI models whose internal weights are available for people to download and run themselves. I envision a world where people can buy devices with preinstalled models that can run locally, without always depending on cloud services.</p>
         <ul class="model-list">
           <li>Google Gemma: I tested <a href="https://lmstudio.ai/models/google/gemma-4-26b-a4b">Gemma 4 26B A4B (Q4)</a>; it performed OK on my PC without a GPU: 32GB RAM, about 14 tokens/second.</li>
           <li>Mistral <a href="https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5">Medium 3.5</a>.</li>
@@ -513,15 +513,15 @@ lima --sync . pi</code></pre>
       <section class="section" id="assistants">
         <h2>Self-hosted assistants</h2>
         <div class="grid">
-          <article class="card"><h3>Family Hermes Agent</h3><p>I have a <a href="http://hermes-agent.nousresearch.com/">Hermes Agent</a> for family matters, connected to a WhatsApp group via a WhatsApp Business account. It uses <code>GPT-5.5</code> and runs in a container on my dedicated server.</p><p>Family members interact with it in WhatsApp. I granted the agent access to a Google Calendar and shared that calendar with family members. Everything else lives in an <a href="https://obsidian.md/">Obsidian</a> Vault as long-term memory.</p></article>
+          <article class="card"><h3>Family Hermes Agent</h3><p>I have a <a href="http://hermes-agent.nousresearch.com/">Hermes Agent</a> for family matters, connected to a WhatsApp group via a WhatsApp Business account. Family members can message it in WhatsApp like a shared assistant. It uses <code>GPT-5.5</code> and runs on my dedicated server.</p><p>I granted the agent access to a Google Calendar and shared that calendar with family members. Everything else lives in an <a href="https://obsidian.md/">Obsidian</a> Vault as long-term memory, so the assistant can keep track of useful family context over time.</p></article>
           <article class="card"><h3>Personal playground</h3><p>I also keep a personal playground for agent experiments: a Hermes Agent for personal <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM Wiki</a> practice and assistance using <code>GLM 5.1</code>.</p><p>I run my experimental assistant project, <a href="https://muxclaw.com/">Muxclaw</a>, using the same model. It is connected to a Telegram group via a Telegram bot.</p></article>
         </div>
       </section>
 
       <section class="section" id="infrastructure">
         <h2>Infrastructure and self-hosted services</h2>
-        <p class="lead">I rent VPSes and dedicated servers, and use <a href="https://tailscale.com/">Tailscale</a> to build a secure private network with public access blocked by default.</p>
-        <p>Self-hosted services are connected through this private network. Docker is the default option for services on VPSes and dedicated servers. I don’t use <a href="https://kubernetes.io/">Kubernetes</a> here; instead, I use <a href="https://github.com/ansible/ansible">Ansible</a> to manage servers.</p>
+        <p class="lead">Self-hosted means I run services on servers I control instead of relying only on commercial cloud apps. I rent VPSes and dedicated servers, and use <a href="https://tailscale.com/">Tailscale</a> to build a secure private network with public access blocked by default.</p>
+        <p>These self-hosted services are connected through this private network. Docker is my default way to package and run services on servers. I don’t use <a href="https://kubernetes.io/">Kubernetes</a> here; instead, I use <a href="https://github.com/ansible/ansible">Ansible</a> to manage servers.</p>
         <h3>Services I self-host</h3>
         <div class="cards3">
           <div class="card"><h4><a href="https://immich.app/">Immich</a></h4><p>Photo and video management.</p></div>
