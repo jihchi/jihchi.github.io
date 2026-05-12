@@ -442,12 +442,13 @@
         <h2>Sandbox experiments</h2>
         <p class="lead">A sandbox is a safe, isolated environment where I can let an AI coding tool make changes without giving it full access to my computer. I’m experimenting with <a href="https://lima-vm.io/">Lima</a> to run Pi this way. Lima supports <a href="https://lima-vm.io/docs/examples/ai/">syncing with the working directory</a>, which keeps the workflow practical.</p>
         <pre><code>limactl create --mount-none --name=default template:debian
+limactl start default
 # lima is an alias for "limactl shell default".
-lima curl https://mise.run/bash | sh
-lima mise u -g node@lts
-lima mise u -g ripgrep fd npm:@earendil-works/pi-coding-agent
+lima bash -c "curl https://mise.run/bash | sh"
+lima mise u -g node@lts ripgrep fd npm:@earendil-works/pi-coding-agent
 cd ~/my-project
-lima --sync . pi</code></pre>
+lima --sync .
+pi</code></pre>
         <p>After exiting Pi, Lima shows an interactive prompt:</p>
         <pre><code>⚠️ Accept the changes?
 → Yes
